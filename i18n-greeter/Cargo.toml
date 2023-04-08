@@ -6,6 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-wasmtime = "1.0.0"
 anyhow = "1.0.70"
 byteorder = "1.4.3"
+llvm-sys = "120.2.6"
+wasmer = "3.1.1"
+wasmer-compiler-llvm = "3.1.1"
