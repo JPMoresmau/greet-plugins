@@ -1,21 +1,15 @@
-mod utils;
+wai_bindgen_rust::export!("greeter.wai");
 
-use wasm_bindgen::prelude::*;
+struct Greeter;
 
-// When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
-// allocator.
-#[cfg(feature = "wee_alloc")]
-#[global_allocator]
-static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+impl crate::greeter::Greeter for Greeter {
+    /// The language we greet in.
+    fn language() -> String {
+        String::from("English")
+    }
 
-/// The language we greet in.
-#[wasm_bindgen]
-pub fn language() -> String {
-    String::from("English")
-}
-
-/// Greet the given name.
-#[wasm_bindgen]
-pub fn greet(name: &str) -> String {
-    format!("Hello, {name}!")
+    /// Greet the given name.
+    fn greet(name: String) -> String {
+        format!("Hello, {name}!")
+    }
 }
