@@ -2,10 +2,9 @@
 name = "i18n-greeter"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["JP Moresmau <jp@slight.dev>"]
 
 [dependencies]
-wasmtime = "1.0.0"
 anyhow = "1.0.70"
-byteorder = "1.4.3"
+chrono = "0.4.24"
+wasmtime = {version = "7.0.0", features= ["component-model"]}

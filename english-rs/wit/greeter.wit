@@ -1,0 +1,13 @@
+interface greeter {
+    // Language supported by the plugin.
+    language: func() -> string
+
+    // Greet the user with the given name.
+    greet: func(name: string) -> string
+}
+
+default world greet {
+    export greeter: self.greeter
+
+    import hour: func() -> u32
+}

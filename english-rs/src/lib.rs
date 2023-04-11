@@ -1,21 +1,28 @@
-mod utils;
+use greeter::Greeter;
 
-use wasm_bindgen::prelude::*;
 
-// When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
-// allocator.
-#[cfg(feature = "wee_alloc")]
-#[global_allocator]
-static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+wit_bindgen::generate!("greeter");
 
-/// The language we greet in.
-#[wasm_bindgen]
-pub fn language() -> String {
-    String::from("English")
+struct MyGreeter;
+
+impl Greeter for MyGreeter {
+
+    /// The language we greet in.
+    fn language() -> String {
+        String::from("English")
+    }
+
+    /// Greet the given name.
+    fn greet(name: String) -> String {
+        let hour = hour();
+        if hour < 12 {
+            format!("Good morning, {name}!")
+        } else if hour < 18 {
+            format!("Good afternoon, {name}!")
+        } else {
+            format!("Good evening, {name}!")
+        }
+    }
 }
 
-/// Greet the given name.
-#[wasm_bindgen]
-pub fn greet(name: &str) -> String {
-    format!("Hello, {name}!")
-}
+export_greet!(MyGreeter);

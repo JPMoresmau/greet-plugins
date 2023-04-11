@@ -1,1 +1,3 @@
 i18n-greeter/plugins/*.wasm
+.DS_Store
+french-go
