@@ -1,0 +1,2 @@
+time: func() -> tuple<u32,u32>
+

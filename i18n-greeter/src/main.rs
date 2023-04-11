@@ -1,6 +1,7 @@
 use std::{env, fs};
 
 use anyhow::{anyhow, Result};
+use chrono::{self, Timelike};
 use greeter::{Greeter, GreeterData};
 use wasmer::*;
 use wasmer_compiler_llvm::LLVM;
@@ -24,7 +25,11 @@ fn main() -> Result<()> {
 
         let module = Module::from_file(&store, path.path())?;
 
-        let imports = imports! {};
+        let imports = imports! {
+            "host" => {
+                "hour" => Function::new_typed(&mut store, hour)
+            },
+        };
         let instance = Instance::new(&mut store, &module, &imports)?;
         let env = FunctionEnv::new(&mut store, GreeterData {});
         let greeter = Greeter::new(&mut store, &instance, env)?;
@@ -35,4 +40,9 @@ fn main() -> Result<()> {
         println!("Greeting: {greeting}");
     }
     Ok(())
+}
+
+fn hour() -> u32 {
+    let now = chrono::Local::now();
+    now.hour()
 }

@@ -1,6 +1,6 @@
 [package]
 name = "english-rs"
-version = "0.1.2"
+version = "0.1.5"
 description = "Simple greeter in English"
 authors = ["JP Moresmau <jp@moresmau.fr>"]
 edition = "2018"
@@ -18,4 +18,4 @@ opt-level = "s"
 [package.metadata.wapm]
 namespace = "JPMoresmau"  # The namespace to publish it to
 abi = "none" # How to compile the crate. "none" is "wasm32-unknown-unknown"
-bindings = { wai-version = "0.2.0", exports = "greeter.wai" }
+bindings = { wai-version = "0.2.0", exports = "greeter.wai" , imports = ["host.wai"]}
