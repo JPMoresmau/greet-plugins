@@ -1,6 +1,6 @@
 [package]
 name = "english-rs"
-version = "0.1.1"
+version = "0.1.2"
 description = "Simple greeter in English"
 authors = ["JP Moresmau <jp@moresmau.fr>"]
 edition = "2018"

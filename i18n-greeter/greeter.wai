@@ -1,3 +1,0 @@
-language: func() -> string
-
-greet: func(name: string) -> string

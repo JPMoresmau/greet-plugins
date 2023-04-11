@@ -1,4 +1,4 @@
-wai_bindgen_rust::export!("greeter.wai");
+wai_bindgen_rust::export!("../greeter.wai");
 
 struct Greeter;
 

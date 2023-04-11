@@ -5,7 +5,7 @@ use greeter::{Greeter, GreeterData};
 use wasmer::*;
 use wasmer_compiler_llvm::LLVM;
 
-wai_bindgen_wasmer::import!("greeter.wai");
+wai_bindgen_wasmer::import!("../greeter.wai");
 
 /// Greet using all the plugins.
 fn main() -> Result<()> {
